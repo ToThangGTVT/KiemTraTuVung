@@ -29,3 +29,33 @@ C:\Users\To Thang\source\repos\Học tiếng Nhật\bin\Debug\Học tiếng Nh�
 C:\Users\To Thang\source\repos\Học tiếng Nhật\obj\Debug\Học tiếng Nhật.TrustInfo.xml
 C:\Users\To Thang\source\repos\Học tiếng Nhật\obj\Debug\Học tiếng Nhật.exe.manifest
 C:\Users\To Thang\source\repos\Học tiếng Nhật\obj\Debug\Học tiếng Nhật.application
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\từ vựng minna.xlsx
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\Học tiếng Nhật.exe.config
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\Học tiếng Nhật.exe.manifest
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\Học tiếng Nhật.application
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\Học tiếng Nhật.exe
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\Học tiếng Nhật.pdb
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\EPPlus.dll
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\MaterialDesignColors.dll
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\EPPlus.xml
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\MaterialDesignColors.pdb
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.csproj.ResolveComReference.cache
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\MainWindow.g.cs
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\App.g.cs
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật_MarkupCompile.cache
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật_MarkupCompile.lref
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\App.baml
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\MainWindow.baml
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.g.resources
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học_tiếng_Nhật.Properties.Resources.resources
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.csproj.GenerateResource.cache
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.csproj.CoreCompileInputs.cache
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.TrustInfo.xml
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.exe.manifest
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.application
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.csproj.CopyComplete
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.exe
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.pdb

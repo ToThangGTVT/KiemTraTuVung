@@ -1,20 +1,9 @@
 ﻿using OfficeOpenXml;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Diagnostics;
 
 
 namespace Học_tiếng_Nhật
@@ -30,10 +19,20 @@ namespace Học_tiếng_Nhật
         string hiragana;
         Color color = (Color)ColorConverter.ConvertFromString("#FF78909C");
         int vitri_dapan_dung;
-
+        int diemso;
         public MainWindow()
         {
             InitializeComponent();
+            txtD.Text = Properties.Settings.Default.diem;
+            if (txtD.Text == "")
+            {
+                diemso = 0;
+            }
+            else
+            {
+                diemso = Convert.ToInt32(txtD.Text);
+            }
+
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
             tumoi_ngaunhien();
             dapan_ngaunhien();
@@ -68,13 +67,14 @@ namespace Học_tiếng_Nhật
 
             int solan = 1;
             int a = 1;
-            while ((a==0 && a == vitri) || solan == 1)
+            while ((a == 0 && a == vitri) || solan == 1)
             {
                 a = rnd.Next(1, WS.Dimension.End.Row);
                 solan++;
             }
             int b = 1;
-            while ((b == a && b == 0 && b == vitri) || solan == 1){
+            while ((b == a && b == 0 && b == vitri) || solan == 1)
+            {
                 b = rnd.Next(1, WS.Dimension.End.Row);
                 solan++;
             }
@@ -94,7 +94,7 @@ namespace Học_tiếng_Nhật
             }
 
             int[] vitri_dapan_sai = new int[5];
-            for(int i=1; i <= 4; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 if (i != vitri_dapan_dung)
                 {
@@ -102,7 +102,7 @@ namespace Học_tiếng_Nhật
                 }
             }
 
-            for(int i = 1; i<=4; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 switch (vitri_dapan_sai[i])
                 {
@@ -137,8 +137,8 @@ namespace Học_tiếng_Nhật
         public Boolean kiemtra(string dapan)
         {
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
-            Boolean kt=true;
-            if (dapan== WS.Cells[vitri, 2].Value.ToString())
+            Boolean kt = true;
+            if (dapan == WS.Cells[vitri, 2].Value.ToString())
             {
                 kt = true;
             }
@@ -202,6 +202,8 @@ namespace Học_tiếng_Nhật
             {
                 btnA.Background = Brushes.Green;
                 btnA.BorderBrush = Brushes.Green;
+                diemso++;
+                txtD.Text = diemso.ToString();
                 await Task.Delay(1000);
             }
             else
@@ -224,6 +226,8 @@ namespace Học_tiếng_Nhật
             {
                 btnB.Background = Brushes.Green;
                 btnB.BorderBrush = Brushes.Green;
+                diemso++;
+                txtD.Text = diemso.ToString();
                 await Task.Delay(1000);
             }
             else
@@ -246,8 +250,11 @@ namespace Học_tiếng_Nhật
             {
                 btnC.Background = Brushes.Green;
                 btnC.BorderBrush = Brushes.Green;
+                diemso++;
+                txtD.Text = diemso.ToString();
                 await Task.Delay(1000);
-                doimau_chocausau();
+                diemso++;
+                txtD.Text = diemso.ToString();
             }
             else
             {
@@ -255,6 +262,7 @@ namespace Học_tiếng_Nhật
                 btnC.Background = Brushes.Red;
                 btnC.BorderBrush = Brushes.Red;
                 await Task.Delay(3000);
+                doimau_chocausau();
             }
             btnC.BorderBrush = new SolidColorBrush(color);
             btnC.Background = new SolidColorBrush(color);
@@ -268,6 +276,8 @@ namespace Học_tiếng_Nhật
             {
                 btnD.Background = Brushes.Green;
                 btnD.BorderBrush = Brushes.Green;
+                diemso++;
+                txtD.Text = diemso.ToString();
                 await Task.Delay(1000);
             }
             else
@@ -282,6 +292,12 @@ namespace Học_tiếng_Nhật
             btnD.Background = new SolidColorBrush(color);
             tumoi_ngaunhien();
             dapan_ngaunhien();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.diem = txtD.Text;
+            Properties.Settings.Default.Save();
         }
     }
 }

@@ -7,35 +7,38 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
-        Title="HTN" Height="357" Width="449" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+        Title="HTN" Height="400" Width="449" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Closing="Window_Closing" MinHeight="400">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="163*"/>
             <ColumnDefinition Width="163*"/>
         </Grid.ColumnDefinitions>
-        <materialDesign:Card x:Name="lbl"
+        <materialDesign:Card x:Name="lbl"                
             materialDesign:ShadowAssist.ShadowDepth="Depth3"
             Background="#FF2C3E50"
             Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
             Padding="25"
-            UniformCornerRadius="6" Margin="10,10,10,184" Grid.ColumnSpan="2" VerticalAlignment="Stretch">
-            <TextBlock x:Name="txtCH"
-                TextWrapping="Wrap" FontSize="25" Margin="20,0,21,-23" Width="330" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" TextAlignment="Center" Text="Kanjifgfgfgfgfgfgfgfgfgfgfgfgf">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="-0.258"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="-0.495"/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
+            UniformCornerRadius="6" 
+            Margin="10,10,10,184" 
+            Grid.ColumnSpan="2" 
+            VerticalAlignment="Stretch">
+            <Grid Margin="0,0,0,-3">
+                <TextBlock x:Name="txtCH" TextWrapping="Wrap" FontSize="25" Margin="-25,0,-24,-23" Width="420" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" TextAlignment="Center">
+                <Run Text="Kanjifgfgfgfgfgfgfgfgfgfgfgfgf"/>
+                </TextBlock>
+                <Separator Height="20" Margin="0,0,0,2" VerticalAlignment="Bottom"></Separator>
+                <materialDesign:PackIcon Foreground="Yellow" Kind="StarRate" Height="35" Width="20" Margin="0,0,0,-23" RenderTransformOrigin="0,1.2" VerticalAlignment="Bottom" />
+                <TextBlock x:Name="txtD" HorizontalAlignment="Left" Margin="25,0,0,-20" TextWrapping="Wrap" Text="0" Width="320" Height="23" VerticalAlignment="Bottom"/>
+            </Grid>
+
+
         </materialDesign:Card>
 
         <Button x:Name="btnA"
             materialDesign:ShadowAssist.ShadowDepth="Depth1"
             Style="{StaticResource MaterialDesignRaisedButton}"
+                
             ToolTip="Resource name: MaterialDesignRaisedButton" Margin="10,0,10,91" Height="67" VerticalAlignment="Bottom" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" FontSize="16" Click="BtnA_Click">
             _MID
         </Button>
