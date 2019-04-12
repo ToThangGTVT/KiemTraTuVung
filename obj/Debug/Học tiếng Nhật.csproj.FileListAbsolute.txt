@@ -59,3 +59,4 @@ C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Họ
 C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.csproj.CopyComplete
 C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.exe
 C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.pdb
+C:\Users\To Thang\source\repos\Học tiếng Nhật\KiemTraTuVung\obj\Debug\Học tiếng Nhật.csprojAssemblyReference.cache

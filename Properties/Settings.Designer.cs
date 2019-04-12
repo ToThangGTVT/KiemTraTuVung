@@ -34,5 +34,17 @@ namespace Học_tiếng_Nhật.Properties {
                 this["diem"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool chedohoc {
+            get {
+                return ((bool)(this["chedohoc"]));
+            }
+            set {
+                this["chedohoc"] = value;
+            }
+        }
     }
 }

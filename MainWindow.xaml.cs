@@ -8,9 +8,6 @@ using System.Windows.Media;
 
 namespace Học_tiếng_Nhật
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Random rnd = new Random();
@@ -19,11 +16,15 @@ namespace Học_tiếng_Nhật
         string hiragana;
         Color color = (Color)ColorConverter.ConvertFromString("#FF78909C");
         int vitri_dapan_dung;
+        int cot_da = 2;
+        int cot_cauhoi = 1;
         int diemso;
+        bool loai_cau_hoi;
         public MainWindow()
         {
             InitializeComponent();
             txtD.Text = Properties.Settings.Default.diem;
+            loai_cau_hoi = Properties.Settings.Default.chedohoc;
             if (txtD.Text == "")
             {
                 diemso = 0;
@@ -34,8 +35,23 @@ namespace Học_tiếng_Nhật
             }
 
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
-            tumoi_ngaunhien();
-            dapan_ngaunhien();
+            if (loai_cau_hoi == true)
+            {
+                loai_cau_hoi = false;
+                cot_cauhoi = 1;
+                cot_da = 2;
+                tumoi_ngaunhien();
+                dapan_ngaunhien();
+            }
+            else
+            {
+                loai_cau_hoi = true;
+                cot_cauhoi = 2;
+                cot_da = 1;
+                tumoi_ngaunhien();
+                dapan_ngaunhien();
+            }
+
         }
 
         void dapan_ngaunhien()
@@ -48,20 +64,20 @@ namespace Học_tiếng_Nhật
             switch (vitri_dapan_dung)
             {
                 case 1:
-                    btnA.Content = WS.Cells[vitri, 2].Value.ToString();
-                    btnA.ToolTip = WS.Cells[vitri, 2].Value.ToString();
+                    btnA.Content = WS.Cells[vitri, cot_da].Value.ToString();
+                    btnA.ToolTip = WS.Cells[vitri, cot_da].Value.ToString();
                     break;
                 case 2:
-                    btnB.Content = WS.Cells[vitri, 2].Value.ToString();
-                    btnB.ToolTip = WS.Cells[vitri, 2].Value.ToString();
+                    btnB.Content = WS.Cells[vitri, cot_da].Value.ToString();
+                    btnB.ToolTip = WS.Cells[vitri, cot_da].Value.ToString();
                     break;
                 case 3:
-                    btnC.Content = WS.Cells[vitri, 2].Value.ToString();
-                    btnC.ToolTip = WS.Cells[vitri, 2].Value.ToString();
+                    btnC.Content = WS.Cells[vitri, cot_da].Value.ToString();
+                    btnC.ToolTip = WS.Cells[vitri, cot_da].Value.ToString();
                     break;
                 case 4:
-                    btnD.Content = WS.Cells[vitri, 2].Value.ToString();
-                    btnD.ToolTip = WS.Cells[vitri, 2].Value.ToString();
+                    btnD.Content = WS.Cells[vitri, cot_da].Value.ToString();
+                    btnD.ToolTip = WS.Cells[vitri, cot_da].Value.ToString();
                     break;
             }
 
@@ -107,20 +123,20 @@ namespace Học_tiếng_Nhật
                 switch (vitri_dapan_sai[i])
                 {
                     case 1:
-                        btnA.Content = WS.Cells[a, 2].Value.ToString();
-                        btnA.ToolTip = WS.Cells[a, 2].Value.ToString();
+                        btnA.Content = WS.Cells[a, cot_da].Value.ToString();
+                        btnA.ToolTip = WS.Cells[a, cot_da].Value.ToString();
                         break;
                     case 2:
-                        btnB.Content = WS.Cells[b, 2].Value.ToString();
-                        btnB.ToolTip = WS.Cells[b, 2].Value.ToString();
+                        btnB.Content = WS.Cells[b, cot_da].Value.ToString();
+                        btnB.ToolTip = WS.Cells[b, cot_da].Value.ToString();
                         break;
                     case 3:
-                        btnC.Content = WS.Cells[c, 2].Value.ToString();
-                        btnC.ToolTip = WS.Cells[c, 2].Value.ToString();
+                        btnC.Content = WS.Cells[c, cot_da].Value.ToString();
+                        btnC.ToolTip = WS.Cells[c, cot_da].Value.ToString();
                         break;
                     case 4:
-                        btnD.Content = WS.Cells[d, 2].Value.ToString();
-                        btnD.ToolTip = WS.Cells[d, 2].Value.ToString();
+                        btnD.Content = WS.Cells[d, cot_da].Value.ToString();
+                        btnD.ToolTip = WS.Cells[d, cot_da].Value.ToString();
                         break;
 
                 }
@@ -131,14 +147,14 @@ namespace Học_tiếng_Nhật
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
             Random rnd = new Random();
             vitri = rnd.Next(1, WS.Dimension.End.Row);
-            hiragana = WS.Cells[vitri, 1].Value.ToString();
+            hiragana = WS.Cells[vitri, cot_cauhoi].Value.ToString();
             txtCH.Text = hiragana;
         }
         public Boolean kiemtra(string dapan)
         {
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
             Boolean kt = true;
-            if (dapan == WS.Cells[vitri, 2].Value.ToString())
+            if (dapan == WS.Cells[vitri, cot_da].Value.ToString())
             {
                 kt = true;
             }
@@ -296,8 +312,41 @@ namespace Học_tiếng_Nhật
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            Properties.Settings.Default.chedohoc = loai_cau_hoi;
             Properties.Settings.Default.diem = txtD.Text;
             Properties.Settings.Default.Save();
+            
+        }
+
+        private void BtnA_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(loai_cau_hoi == true)
+            {
+                loai_cau_hoi = false;
+                cot_cauhoi = 1;
+                cot_da = 2;
+                tumoi_ngaunhien();
+                dapan_ngaunhien();
+            }
+            else
+            {
+                loai_cau_hoi = true;
+                cot_cauhoi = 2;
+                cot_da = 1;
+                tumoi_ngaunhien();
+                dapan_ngaunhien();
+            }
+        }
+
+        private void Button_next_Click(object sender, RoutedEventArgs e)
+        {
+            tumoi_ngaunhien();
+            dapan_ngaunhien();
         }
     }
 }

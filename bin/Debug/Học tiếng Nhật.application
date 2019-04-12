@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Học tiếng Nhật.exe.manifest" size="7127">
+    <dependentAssembly dependencyType="install" codebase="Học tiếng Nhật.exe.manifest" size="7128">
       <assemblyIdentity name="Học tiếng Nhật.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o+Aj9vug22wHBIs6/W4NOWJo9OHfSZrnYawDJJlWunY=</dsig:DigestValue>
+        <dsig:DigestValue>xY0m2lSyOkTKbYcQwjT8O5UYzypm+jCO6p8AfDT3E0s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Học_tiếng_Nhật"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         Title="HTN" Height="400" Width="449" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Closing="Window_Closing" MinHeight="400">
 
     <Grid>
@@ -24,22 +23,21 @@
             Grid.ColumnSpan="2" 
             VerticalAlignment="Stretch">
             <Grid Margin="0,0,0,-3">
+
                 <TextBlock x:Name="txtCH" TextWrapping="Wrap" FontSize="25" Margin="-25,0,-24,-23" Width="420" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" TextAlignment="Center">
                 <Run Text="Kanjifgfgfgfgfgfgfgfgfgfgfgfgf"/>
                 </TextBlock>
-                <Separator Height="20" Margin="0,0,0,2" VerticalAlignment="Bottom"></Separator>
+                <Separator  Height="3" Margin="0,0,0,6" VerticalAlignment="Bottom" Background="#FF455A64" Foreground="#FF37474F" BorderBrush="#FF455A64"></Separator>
                 <materialDesign:PackIcon Foreground="Yellow" Kind="StarRate" Height="35" Width="20" Margin="0,0,0,-23" RenderTransformOrigin="0,1.2" VerticalAlignment="Bottom" />
                 <TextBlock x:Name="txtD" HorizontalAlignment="Left" Margin="25,0,0,-20" TextWrapping="Wrap" Text="0" Width="320" Height="23" VerticalAlignment="Bottom"/>
             </Grid>
 
 
         </materialDesign:Card>
-
-        <Button x:Name="btnA"
+        <Button x:Name="btnA"           
             materialDesign:ShadowAssist.ShadowDepth="Depth1"
-            Style="{StaticResource MaterialDesignRaisedButton}"
-                
-            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="10,0,10,91" Height="67" VerticalAlignment="Bottom" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" FontSize="16" Click="BtnA_Click">
+            Style="{StaticResource MaterialDesignRaisedButton}"                
+            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="10,0,10,91" Height="67" VerticalAlignment="Bottom" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" FontSize="16" Click="BtnA_Click" KeyDown="BtnA_KeyDown">
             _MID
         </Button>
         <Grid HorizontalAlignment="Left" Height="163" Margin="0,128,0,0" VerticalAlignment="Top" Width="0" Grid.Column="1"/>
@@ -55,5 +53,19 @@
             materialDesign:ShadowAssist.ShadowDepth="Depth1"
             Style="{StaticResource MaterialDesignRaisedButton}"
             ToolTip="Resource name: MaterialDesignRaisedButton" Margin="10,0,10,19" Height="67" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Content="_MID" VerticalAlignment="Bottom" FontSize="16" Click="BtnC_Click"/>
+        <Button
+            Grid.Row="0"
+            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+            VerticalAlignment="Bottom"
+            Margin="0,0,23,165" Height="40" Width="40" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
+            <materialDesign:PackIcon Kind="Arrow" Height="20" Width="20" />
+        </Button>
+        <Button
+            Grid.Row="0"
+            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+            VerticalAlignment="Bottom"
+            Margin="0,0,74,165" Height="40" Width="40" Click="Button_next_Click" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
+            <materialDesign:PackIcon Kind="ArrowRight" Height="20" Width="20" />
+        </Button>
     </Grid>
 </Window>
