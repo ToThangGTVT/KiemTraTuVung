@@ -1,6 +1,7 @@
 ﻿using OfficeOpenXml;
 using System;
 using System.IO;
+using System.Speech.Synthesis;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
@@ -35,20 +36,18 @@ namespace Học_tiếng_Nhật
             }
 
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
-            if (loai_cau_hoi == true)
+            if (loai_cau_hoi == false)
             {
-                loai_cau_hoi = false;
                 cot_cauhoi = 1;
                 cot_da = 2;
-                tumoi_ngaunhien();
+                _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
             else
             {
-                loai_cau_hoi = true;
                 cot_cauhoi = 2;
                 cot_da = 1;
-                tumoi_ngaunhien();
+                _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
 
@@ -142,13 +141,14 @@ namespace Học_tiếng_Nhật
                 }
             }
         }
-        void tumoi_ngaunhien()
+        async Task tumoi_ngaunhien()
         {
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
             Random rnd = new Random();
             vitri = rnd.Next(1, WS.Dimension.End.Row);
             hiragana = WS.Cells[vitri, cot_cauhoi].Value.ToString();
             txtCH.Text = hiragana;
+            await phat_am(hiragana);
         }
         public Boolean kiemtra(string dapan)
         {
@@ -232,7 +232,7 @@ namespace Học_tiếng_Nhật
             }
             btnA.BorderBrush = new SolidColorBrush(color);
             btnA.Background = new SolidColorBrush(color);
-            tumoi_ngaunhien();
+            _ = tumoi_ngaunhien();
             dapan_ngaunhien();
         }
 
@@ -256,7 +256,7 @@ namespace Học_tiếng_Nhật
             }
             btnB.BorderBrush = new SolidColorBrush(color);
             btnB.Background = new SolidColorBrush(color);
-            tumoi_ngaunhien();
+            _ = tumoi_ngaunhien();
             dapan_ngaunhien();
         }
 
@@ -282,7 +282,7 @@ namespace Học_tiếng_Nhật
             }
             btnC.BorderBrush = new SolidColorBrush(color);
             btnC.Background = new SolidColorBrush(color);
-            tumoi_ngaunhien();
+            _ = tumoi_ngaunhien();
             dapan_ngaunhien();
         }
 
@@ -306,7 +306,7 @@ namespace Học_tiếng_Nhật
             }
             btnD.BorderBrush = new SolidColorBrush(color);
             btnD.Background = new SolidColorBrush(color);
-            tumoi_ngaunhien();
+            _ = tumoi_ngaunhien();
             dapan_ngaunhien();
         }
 
@@ -315,22 +315,22 @@ namespace Học_tiếng_Nhật
             Properties.Settings.Default.chedohoc = loai_cau_hoi;
             Properties.Settings.Default.diem = txtD.Text;
             Properties.Settings.Default.Save();
-            
+
         }
 
         private void BtnA_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(loai_cau_hoi == true)
+            if (loai_cau_hoi == true)
             {
                 loai_cau_hoi = false;
                 cot_cauhoi = 1;
                 cot_da = 2;
-                tumoi_ngaunhien();
+                _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
             else
@@ -338,15 +338,30 @@ namespace Học_tiếng_Nhật
                 loai_cau_hoi = true;
                 cot_cauhoi = 2;
                 cot_da = 1;
-                tumoi_ngaunhien();
+                _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
         }
 
         private void Button_next_Click(object sender, RoutedEventArgs e)
         {
-            tumoi_ngaunhien();
+            _ = tumoi_ngaunhien();
             dapan_ngaunhien();
+        }
+
+        private async Task phat_am(string text)
+        {
+            if (loai_cau_hoi == false)
+            {
+                SpeechSynthesizer speech = new SpeechSynthesizer();
+                speech.SelectVoice("Microsoft Haruka Desktop");
+                await Task.Run(() => speech.Speak(hiragana));
+            }
+        }
+
+        async private void Button_Click_play(object sender, RoutedEventArgs e)
+        {
+            await phat_am(hiragana);
         }
     }
 }

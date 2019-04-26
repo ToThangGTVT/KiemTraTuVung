@@ -64,8 +64,16 @@
             Grid.Row="0"
             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
             VerticalAlignment="Bottom"
-            Margin="0,0,74,165" Height="40" Width="40" Click="Button_next_Click" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
+            Margin="0,0,73,165" Height="40" Width="40" Click="Button_next_Click" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
             <materialDesign:PackIcon Kind="ArrowRight" Height="20" Width="20" />
+        </Button>
+
+        <Button
+            Grid.Row="0"
+            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+            VerticalAlignment="Bottom"
+            Margin="0,0,123,165" Height="40" Width="40" Click="Button_Click_play" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
+            <materialDesign:PackIcon Kind="Talking" Height="20" Width="20" />
         </Button>
     </Grid>
 </Window>
