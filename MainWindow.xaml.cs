@@ -21,6 +21,8 @@ namespace Học_tiếng_Nhật
         int cot_cauhoi = 1;
         int diemso;
         bool loai_cau_hoi;
+        bool cho_phep_nhan_nut = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -161,6 +163,7 @@ namespace Học_tiếng_Nhật
             else
             {
                 kt = false;
+                _ = phat_am_dapan(WS.Cells[vitri, cot_da].Value.ToString());
             }
             return kt;
         }
@@ -214,100 +217,132 @@ namespace Học_tiếng_Nhật
 
         async private void BtnA_Click(object sender, RoutedEventArgs e)
         {
-            if (kiemtra(btnA.Content.ToString()) == true)
+            if (cho_phep_nhan_nut == true)
             {
-                btnA.Background = Brushes.Green;
-                btnA.BorderBrush = Brushes.Green;
-                diemso++;
-                txtD.Text = diemso.ToString();
-                await Task.Delay(1000);
+                cho_phep_nhan_nut = false;
+                if (kiemtra(btnA.Content.ToString()) == true)
+                {
+                    btnA.Background = Brushes.Green;
+                    btnA.BorderBrush = Brushes.Green;
+                    diemso++;
+                    txtD.Text = diemso.ToString();
+                    await phat_am_dapan(btnA.Content.ToString());
+                    await Task.Delay(1000);
+                    cho_phep_nhan_nut = true;
+                }
+                else
+                {
+                    hienthi_tudung();
+                    btnA.Background = Brushes.Red;
+                    btnA.BorderBrush = Brushes.Red;
+                    await Task.Delay(3000);
+                    cho_phep_nhan_nut = true;
+                    doimau_chocausau();
+                }
+                btnA.BorderBrush = new SolidColorBrush(color);
+                btnA.Background = new SolidColorBrush(color);
+                _ = tumoi_ngaunhien();
+                dapan_ngaunhien();
             }
-            else
-            {
-                hienthi_tudung();
-                btnA.Background = Brushes.Red;
-                btnA.BorderBrush = Brushes.Red;
-                await Task.Delay(3000);
-                doimau_chocausau();
-            }
-            btnA.BorderBrush = new SolidColorBrush(color);
-            btnA.Background = new SolidColorBrush(color);
-            _ = tumoi_ngaunhien();
-            dapan_ngaunhien();
+
         }
 
         async private void BtnB_Click(object sender, RoutedEventArgs e)
         {
-            if (kiemtra(btnB.Content.ToString()) == true)
+            if (cho_phep_nhan_nut == true)
             {
-                btnB.Background = Brushes.Green;
-                btnB.BorderBrush = Brushes.Green;
-                diemso++;
-                txtD.Text = diemso.ToString();
-                await Task.Delay(1000);
+                cho_phep_nhan_nut = false;
+                if (kiemtra(btnB.Content.ToString()) == true)
+                {
+                    btnB.Background = Brushes.Green;
+                    btnB.BorderBrush = Brushes.Green;
+                    diemso++;
+                    txtD.Text = diemso.ToString();
+                    await phat_am_dapan(btnB.Content.ToString());
+                    await Task.Delay(1000);
+                    cho_phep_nhan_nut = true;
+                }
+                else
+                {
+                    hienthi_tudung();
+                    btnB.Background = Brushes.Red;
+                    btnB.BorderBrush = Brushes.Red;
+                    await Task.Delay(3000);
+                    cho_phep_nhan_nut = true;
+                    doimau_chocausau();
+                }
+                btnB.BorderBrush = new SolidColorBrush(color);
+                btnB.Background = new SolidColorBrush(color);
+                _ = tumoi_ngaunhien();
+                dapan_ngaunhien();
             }
-            else
-            {
-                hienthi_tudung();
-                btnB.Background = Brushes.Red;
-                btnB.BorderBrush = Brushes.Red;
-                await Task.Delay(3000);
-                doimau_chocausau();
-            }
-            btnB.BorderBrush = new SolidColorBrush(color);
-            btnB.Background = new SolidColorBrush(color);
-            _ = tumoi_ngaunhien();
-            dapan_ngaunhien();
+
         }
 
         async private void BtnC_Click(object sender, RoutedEventArgs e)
         {
-            if (kiemtra(btnC.Content.ToString()) == true)
+            if (cho_phep_nhan_nut == true)
             {
-                btnC.Background = Brushes.Green;
-                btnC.BorderBrush = Brushes.Green;
-                diemso++;
-                txtD.Text = diemso.ToString();
-                await Task.Delay(1000);
-                diemso++;
-                txtD.Text = diemso.ToString();
+                cho_phep_nhan_nut = false;
+                if (kiemtra(btnC.Content.ToString()) == true)
+                {
+                    btnC.Background = Brushes.Green;
+                    btnC.BorderBrush = Brushes.Green;
+                    diemso++;
+                    txtD.Text = diemso.ToString();
+                    await phat_am_dapan(btnC.Content.ToString());
+                    await Task.Delay(1000);
+                    cho_phep_nhan_nut = true;
+                    diemso++;
+                    txtD.Text = diemso.ToString();
+                }
+                else
+                {
+                    hienthi_tudung();
+                    btnC.Background = Brushes.Red;
+                    btnC.BorderBrush = Brushes.Red;
+                    await Task.Delay(3000);
+                    cho_phep_nhan_nut = true;
+                    doimau_chocausau();
+                }
+                btnC.BorderBrush = new SolidColorBrush(color);
+                btnC.Background = new SolidColorBrush(color);
+                _ = tumoi_ngaunhien();
+                dapan_ngaunhien();
             }
-            else
-            {
-                hienthi_tudung();
-                btnC.Background = Brushes.Red;
-                btnC.BorderBrush = Brushes.Red;
-                await Task.Delay(3000);
-                doimau_chocausau();
-            }
-            btnC.BorderBrush = new SolidColorBrush(color);
-            btnC.Background = new SolidColorBrush(color);
-            _ = tumoi_ngaunhien();
-            dapan_ngaunhien();
+
         }
 
         async private void BtnD_Click(object sender, RoutedEventArgs e)
         {
-            if (kiemtra(btnD.Content.ToString()) == true)
+            if (cho_phep_nhan_nut == true)
             {
-                btnD.Background = Brushes.Green;
-                btnD.BorderBrush = Brushes.Green;
-                diemso++;
-                txtD.Text = diemso.ToString();
-                await Task.Delay(1000);
+                cho_phep_nhan_nut = false;
+                if (kiemtra(btnD.Content.ToString()) == true)
+                {
+                    btnD.Background = Brushes.Green;
+                    btnD.BorderBrush = Brushes.Green;
+                    diemso++;
+                    txtD.Text = diemso.ToString();
+                    await phat_am_dapan(btnD.Content.ToString());
+                    await Task.Delay(1000);
+                    cho_phep_nhan_nut = true;
+                }
+                else
+                {
+                    hienthi_tudung();
+                    btnD.Background = Brushes.Red;
+                    btnD.BorderBrush = Brushes.Red;
+                    await Task.Delay(3000);
+                    cho_phep_nhan_nut = true;
+                    doimau_chocausau();
+                }
+                btnD.BorderBrush = new SolidColorBrush(color);
+                btnD.Background = new SolidColorBrush(color);
+                _ = tumoi_ngaunhien();
+                dapan_ngaunhien();
             }
-            else
-            {
-                hienthi_tudung();
-                btnD.Background = Brushes.Red;
-                btnD.BorderBrush = Brushes.Red;
-                await Task.Delay(3000);
-                doimau_chocausau();
-            }
-            btnD.BorderBrush = new SolidColorBrush(color);
-            btnD.Background = new SolidColorBrush(color);
-            _ = tumoi_ngaunhien();
-            dapan_ngaunhien();
+
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -355,7 +390,17 @@ namespace Học_tiếng_Nhật
             {
                 SpeechSynthesizer speech = new SpeechSynthesizer();
                 speech.SelectVoice("Microsoft Haruka Desktop");
-                await Task.Run(() => speech.Speak(hiragana));
+                await Task.Run(() => speech.Speak(text));
+            }
+        }
+
+        private async Task phat_am_dapan(string text)
+        {
+            if (loai_cau_hoi == true)
+            {
+                SpeechSynthesizer speech = new SpeechSynthesizer();
+                speech.SelectVoice("Microsoft Haruka Desktop");
+                await Task.Run(() => speech.Speak(text));
             }
         }
 
