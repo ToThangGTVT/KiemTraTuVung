@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Học tiếng Nhật.exe" size="236528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Học tiếng Nhật.exe" size="237040">
       <assemblyIdentity name="Học tiếng Nhật" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0aovquqbJPyGttOvaJwzddUp9nfxpV7YdD7lENLmuxo=</dsig:DigestValue>
+        <dsig:DigestValue>9p4YcWibpnUSlkMVyIqXfSyEn68eLDG7Zj3eoOy+VZM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

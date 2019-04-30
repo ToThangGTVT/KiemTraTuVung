@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Học_tiếng_Nhật"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-        Title="HTN" Height="400" Width="449" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Closing="Window_Closing" MinHeight="400">
+        Title="HTN" Height="417" Width="449" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Closing="Window_Closing" MinHeight="400">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,13 +19,13 @@
             Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
             Padding="25"
             UniformCornerRadius="6" 
-            Margin="10,10,10,184" 
+            Margin="10,10,10,201" 
             Grid.ColumnSpan="2" 
             VerticalAlignment="Stretch">
             <Grid Margin="0,0,0,-3">
 
-                <TextBlock x:Name="txtCH" TextWrapping="Wrap" FontSize="25" Margin="-25,0,-24,-23" Width="420" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" TextAlignment="Center">
-                <Run Text="Kanjifgfgfgfgfgfgfgfgfgfgfgfgf"/>
+                <TextBlock x:Name="txtCH" TextWrapping="Wrap" FontSize="25" Width="371" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" TextAlignment="Center">
+                <Run Text="Mấy anh xài source ghi nguồn cho em nha"/>
                 </TextBlock>
                 <Separator  Height="3" Margin="0,0,0,6" VerticalAlignment="Bottom" Background="#FF455A64" Foreground="#FF37474F" BorderBrush="#FF455A64"></Separator>
                 <materialDesign:PackIcon Foreground="Yellow" Kind="StarRate" Height="35" Width="20" Margin="0,0,0,-23" RenderTransformOrigin="0,1.2" VerticalAlignment="Bottom" />
@@ -37,34 +37,34 @@
         <Button x:Name="btnA"           
             materialDesign:ShadowAssist.ShadowDepth="Depth1"
             Style="{StaticResource MaterialDesignRaisedButton}"                
-            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="10,0,10,91" Height="67" VerticalAlignment="Bottom" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" FontSize="16" Click="BtnA_Click" KeyDown="BtnA_KeyDown">
-            _MID
+            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="14,0,6,100" Height="67" VerticalAlignment="Bottom" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" FontSize="16" Click="BtnA_Click" KeyDown="BtnA_KeyDown">
+            _A
         </Button>
         <Grid HorizontalAlignment="Left" Height="163" Margin="0,128,0,0" VerticalAlignment="Top" Width="0" Grid.Column="1"/>
         <Button x:Name="btnB"
             materialDesign:ShadowAssist.ShadowDepth="Depth1"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="10,0,10,91" Height="67" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Content="_MID" Grid.Column="1" VerticalAlignment="Bottom" FontSize="16" Click="BtnB_Click"/>
+            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="6,0,14,101" Height="67" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Content="_B" Grid.Column="1" VerticalAlignment="Bottom" FontSize="16" Click="BtnB_Click"/>
         <Button x:Name="btnD"
             materialDesign:ShadowAssist.ShadowDepth="Depth1"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="10,0,10,19" Height="67" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Content="_MID" Grid.Column="1" VerticalAlignment="Bottom" FontSize="16" Click="BtnD_Click"/>
+            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="6,0,14,22" Height="67" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Content="_C" Grid.Column="1" VerticalAlignment="Bottom" FontSize="16" Click="BtnD_Click"/>
         <Button x:Name="btnC"
             materialDesign:ShadowAssist.ShadowDepth="Depth1"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="10,0,10,19" Height="67" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Content="_MID" VerticalAlignment="Bottom" FontSize="16" Click="BtnC_Click"/>
+            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="14,0,6,22" Height="67" Background="#FF78909C" BorderBrush="#FF78909C" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Content="_D" VerticalAlignment="Bottom" FontSize="16" Click="BtnC_Click"/>
         <Button
             Grid.Row="0"
             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
             VerticalAlignment="Bottom"
-            Margin="0,0,23,165" Height="40" Width="40" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
+            Margin="0,0,23,181" Height="40" Width="40" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
             <materialDesign:PackIcon Kind="Arrow" Height="20" Width="20" />
         </Button>
         <Button
             Grid.Row="0"
             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
             VerticalAlignment="Bottom"
-            Margin="0,0,73,165" Height="40" Width="40" Click="Button_next_Click" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
+            Margin="0,0,73,181" Height="40" Width="40" Click="Button_next_Click" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
             <materialDesign:PackIcon Kind="ArrowRight" Height="20" Width="20" />
         </Button>
 
@@ -72,8 +72,14 @@
             Grid.Row="0"
             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
             VerticalAlignment="Bottom"
-            Margin="0,0,123,165" Height="40" Width="40" Click="Button_Click_play" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
+            Margin="0,0,123,181" Height="40" Width="40" Click="Button_Click_play" Grid.Column="1" HorizontalAlignment="Right" Background="#FF00897B" BorderBrush="#FF00897B">
             <materialDesign:PackIcon Kind="Talking" Height="20" Width="20" />
         </Button>
+
+        <TextBlock Margin="7,0,214,-4" Grid.ColumnSpan="2" Height="24" VerticalAlignment="Bottom">           
+            <Hyperlink NavigateUri="https://www.facebook.com/tokun.nb" RequestNavigate="Hyperlink_RequestNavigate" >
+                Liên hệ
+            </Hyperlink>
+        </TextBlock>
     </Grid>
 </Window>

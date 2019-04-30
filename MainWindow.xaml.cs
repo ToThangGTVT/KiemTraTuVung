@@ -1,11 +1,12 @@
 ﻿using OfficeOpenXml;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Speech.Synthesis;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-
+using System.Windows.Navigation;
 
 namespace Học_tiếng_Nhật
 {
@@ -407,6 +408,12 @@ namespace Học_tiếng_Nhật
         async private void Button_Click_play(object sender, RoutedEventArgs e)
         {
             await phat_am(hiragana);
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }
