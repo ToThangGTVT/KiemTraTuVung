@@ -13,7 +13,7 @@ namespace Học_tiếng_Nhật
     public partial class MainWindow : Window
     {
         Random rnd = new Random();
-        ExcelPackage package = new ExcelPackage(new FileInfo("từ vựng minna.xlsx"));
+        ExcelPackage package = new ExcelPackage(new FileInfo("dic.xlsx"));
         int vitri;
         string hiragana;
         Color color = (Color)ColorConverter.ConvertFromString("#FF78909C");
@@ -23,6 +23,8 @@ namespace Học_tiếng_Nhật
         int diemso;
         bool loai_cau_hoi;
         bool cho_phep_nhan_nut = true;
+        bool tra_loi_sai = false;
+        int cau_hoi_da_sai = 1;
 
         public MainWindow()
         {
@@ -53,13 +55,13 @@ namespace Học_tiếng_Nhật
                 _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
-
         }
 
         void dapan_ngaunhien()
         {
 
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
+
             Random rnd = new Random();
             vitri_dapan_dung = rnd.Next(1, 4);
 
@@ -146,12 +148,21 @@ namespace Học_tiếng_Nhật
         }
         async Task tumoi_ngaunhien()
         {
-            ExcelWorksheet WS = package.Workbook.Worksheets[1];
-            Random rnd = new Random();
-            vitri = rnd.Next(1, WS.Dimension.End.Row);
-            hiragana = WS.Cells[vitri, cot_cauhoi].Value.ToString();
-            txtCH.Text = hiragana;
-            await phat_am(hiragana);
+            if (tra_loi_sai == true)
+            {
+                vitri = cau_hoi_da_sai;
+                tra_loi_sai = false;
+            }
+            else
+            {
+                ExcelWorksheet WS = package.Workbook.Worksheets[1];
+                Random rnd = new Random();
+                vitri = rnd.Next(1, WS.Dimension.End.Row);
+                hiragana = WS.Cells[vitri, cot_cauhoi].Value.ToString();
+                txtCH.Text = hiragana;
+                await phat_am(hiragana);
+            }
+           
         }
         public Boolean kiemtra(string dapan)
         {
@@ -165,6 +176,7 @@ namespace Học_tiếng_Nhật
             {
                 kt = false;
                 _ = phat_am_dapan(WS.Cells[vitri, cot_da].Value.ToString());
+                cau_hoi_da_sai = vitri;
             }
             return kt;
         }
@@ -233,12 +245,14 @@ namespace Học_tiếng_Nhật
                 }
                 else
                 {
+                    tra_loi_sai = true;
                     hienthi_tudung();
                     btnA.Background = Brushes.Red;
                     btnA.BorderBrush = Brushes.Red;
                     await Task.Delay(3000);
                     cho_phep_nhan_nut = true;
                     doimau_chocausau();
+
                 }
                 btnA.BorderBrush = new SolidColorBrush(color);
                 btnA.Background = new SolidColorBrush(color);
@@ -265,6 +279,7 @@ namespace Học_tiếng_Nhật
                 }
                 else
                 {
+                    tra_loi_sai = true;
                     hienthi_tudung();
                     btnB.Background = Brushes.Red;
                     btnB.BorderBrush = Brushes.Red;
@@ -299,6 +314,7 @@ namespace Học_tiếng_Nhật
                 }
                 else
                 {
+                    tra_loi_sai = true;
                     hienthi_tudung();
                     btnC.Background = Brushes.Red;
                     btnC.BorderBrush = Brushes.Red;
@@ -331,6 +347,7 @@ namespace Học_tiếng_Nhật
                 }
                 else
                 {
+                    tra_loi_sai = true;
                     hienthi_tudung();
                     btnD.Background = Brushes.Red;
                     btnD.BorderBrush = Brushes.Red;
@@ -390,7 +407,7 @@ namespace Học_tiếng_Nhật
             if (loai_cau_hoi == false)
             {
                 SpeechSynthesizer speech = new SpeechSynthesizer();
-                speech.SelectVoice("Microsoft Haruka Desktop");
+                speech.SelectVoice("Microsoft Zira Desktop");
                 await Task.Run(() => speech.Speak(text));
             }
         }
@@ -400,7 +417,7 @@ namespace Học_tiếng_Nhật
             if (loai_cau_hoi == true)
             {
                 SpeechSynthesizer speech = new SpeechSynthesizer();
-                speech.SelectVoice("Microsoft Haruka Desktop");
+                speech.SelectVoice("Microsoft Zira Desktop");
                 await Task.Run(() => speech.Speak(text));
             }
         }
