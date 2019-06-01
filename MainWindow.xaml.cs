@@ -1,5 +1,7 @@
 ﻿using OfficeOpenXml;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Speech.Synthesis;
@@ -12,10 +14,11 @@ namespace Học_tiếng_Nhật
 {
     public partial class MainWindow : Window
     {
-        Random rnd = new Random();
+        CARD k;
+        ArrayList arrayList = new ArrayList();
         ExcelPackage package = new ExcelPackage(new FileInfo("dic.xlsx"));
-        int vitri;
-        string hiragana;
+        int vitri = 1;
+        string eng;
         Color color = (Color)ColorConverter.ConvertFromString("#FF78909C");
         int vitri_dapan_dung;
         int cot_da = 2;
@@ -25,12 +28,17 @@ namespace Học_tiếng_Nhật
         bool cho_phep_nhan_nut = true;
         bool tra_loi_sai = false;
         int cau_hoi_da_sai = 1;
+        int sheet_hientai = 1;
+        int sheet_max;
+        int sheet_min = 1;
 
         public MainWindow()
         {
             InitializeComponent();
             txtD.Text = Properties.Settings.Default.diem;
             loai_cau_hoi = Properties.Settings.Default.chedohoc;
+
+            
             if (txtD.Text == "")
             {
                 diemso = 0;
@@ -59,9 +67,8 @@ namespace Học_tiếng_Nhật
 
         void dapan_ngaunhien()
         {
-
-            ExcelWorksheet WS = package.Workbook.Worksheets[1];
-
+            ExcelWorksheet WS;
+            WS = package.Workbook.Worksheets[1];
             Random rnd = new Random();
             vitri_dapan_dung = rnd.Next(1, 4);
 
@@ -142,28 +149,89 @@ namespace Học_tiếng_Nhật
                         btnD.Content = WS.Cells[d, cot_da].Value.ToString();
                         btnD.ToolTip = WS.Cells[d, cot_da].Value.ToString();
                         break;
-
                 }
             }
         }
-        async Task tumoi_ngaunhien()
+
+        private void chuyen_cau_hoi()
         {
-            if (tra_loi_sai == true)
+            ExcelWorksheet WS, WS1;
+            WS = package.Workbook.Worksheets[sheet_hientai];
+
+            if (tra_loi_sai == false)
             {
-                vitri = cau_hoi_da_sai;
-                tra_loi_sai = false;
+                chuyen_len_tren(sheet_hientai, vitri, k);
             }
             else
             {
-                ExcelWorksheet WS = package.Workbook.Worksheets[1];
-                Random rnd = new Random();
-                vitri = rnd.Next(1, WS.Dimension.End.Row);
-                hiragana = WS.Cells[vitri, cot_cauhoi].Value.ToString();
-                txtCH.Text = hiragana;
-                await phat_am(hiragana);
+
             }
-           
+
+            if (vitri == WS.Dimension.End.Row)
+            {
+                vitri = 1;
+                sheet_hientai++;
+                WS1 = package.Workbook.Worksheets[sheet_hientai];
+                if (WS1.Dimension.End.Row == 0)
+                {
+                    sheet_hientai = 1;
+                }
+            }
+            else
+            {
+                vitri++;
+            }
         }
+
+        private void load_excel(int sheet_hientai)
+        {
+            ExcelWorksheet WS = package.Workbook.Worksheets[sheet_hientai];
+            for (int i = 1;i<= WS.Dimension.End.Row; i++)
+            {
+                arrayList.Add(new CARD(WS.Cells[i, 1].Value.ToString(), WS.Cells[i, 2].Value.ToString()));
+            }
+        }
+
+        async Task tumoi_ngaunhien()
+        {
+            ExcelWorksheet WS;
+            WS = package.Workbook.Worksheets[sheet_hientai];
+            while (WS.Dimension.End.Row == 0)
+            {
+                WS = package.Workbook.Worksheets[sheet_hientai + 1];
+                sheet_hientai++;
+            }
+
+            load_excel(sheet_hientai);
+            int index = vitri - 1;
+            k = arrayList[index] as CARD;
+            txtCH.Text = k.ENG;
+            await phat_am(k.ENG);
+        }
+
+        private void chuyen_len_tren(int sheet_hien_tai, int vitri, CARD the_eng_vie)
+        {
+            ExcelWorksheet WS = package.Workbook.Worksheets[sheet_hien_tai];
+            WS.DeleteRow(vitri,vitri,true);
+            package.Save();
+            ExcelWorksheet WS1 = package.Workbook.Worksheets[sheet_hien_tai+1];
+
+            try
+            {
+                int vitri_cuoi = WS1.Dimension.End.Row;
+                WS1.Cells[vitri_cuoi, 1].Value = the_eng_vie.ENG.ToString();
+                WS1.Cells[vitri_cuoi, 2].Value = the_eng_vie.VIE.ToString();
+                package.Save();
+            }
+            catch
+            {
+                int vitri_cuoi = 1;
+                WS1.Cells[vitri_cuoi, 1].Value = the_eng_vie.ENG.ToString();
+                WS1.Cells[vitri_cuoi, 2].Value = the_eng_vie.VIE.ToString();
+                package.Save();
+            }
+        }
+
         public Boolean kiemtra(string dapan)
         {
             ExcelWorksheet WS = package.Workbook.Worksheets[1];
@@ -256,6 +324,7 @@ namespace Học_tiếng_Nhật
                 }
                 btnA.BorderBrush = new SolidColorBrush(color);
                 btnA.Background = new SolidColorBrush(color);
+                chuyen_cau_hoi();
                 _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
@@ -289,6 +358,7 @@ namespace Học_tiếng_Nhật
                 }
                 btnB.BorderBrush = new SolidColorBrush(color);
                 btnB.Background = new SolidColorBrush(color);
+                chuyen_cau_hoi();
                 _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
@@ -324,10 +394,10 @@ namespace Học_tiếng_Nhật
                 }
                 btnC.BorderBrush = new SolidColorBrush(color);
                 btnC.Background = new SolidColorBrush(color);
+                chuyen_cau_hoi();
                 _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
-
         }
 
         async private void BtnD_Click(object sender, RoutedEventArgs e)
@@ -357,10 +427,10 @@ namespace Học_tiếng_Nhật
                 }
                 btnD.BorderBrush = new SolidColorBrush(color);
                 btnD.Background = new SolidColorBrush(color);
+                chuyen_cau_hoi();
                 _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
             }
-
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -424,7 +494,13 @@ namespace Học_tiếng_Nhật
 
         async private void Button_Click_play(object sender, RoutedEventArgs e)
         {
-            await phat_am(hiragana);
+            await phat_am(eng);
+        }
+
+        private void them_tu_moi(object sender, RoutedEventArgs e)
+        {
+            Them_tu_moi tumoi = new Them_tu_moi();
+            tumoi.ShowDialog();
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

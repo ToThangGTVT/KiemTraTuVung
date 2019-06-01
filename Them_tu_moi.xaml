@@ -1,0 +1,72 @@
+﻿<Window x:Name="them_tu_moi" x:Class="Học_tiếng_Nhật.Them_tu_moi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        Title="HTN" Height="417" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" MinHeight="400" Closing="Them_tu_moi_Closing">
+
+    <Window.Resources>
+        <RoutedUICommand x:Key="key1" Text="Enter"/>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource key1}" 
+                        Executed="CommandBinding_Executed">
+        </CommandBinding>
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Key="Enter" Command="{StaticResource key1}"></KeyBinding>
+    </Window.InputBindings>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="111*"/>
+        </Grid.ColumnDefinitions>
+        <ListView
+            x:Name="lst_excel"
+            ItemsSource="{Binding Items1}" Grid.ColumnSpan="3" Margin="0,100,0,10" TabIndex="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        DisplayMemberBinding="{Binding STT}"
+                        Header="STT" />
+                    <GridViewColumn
+                        DisplayMemberBinding="{Binding Eng}"
+                        Header="English" />
+                    <GridViewColumn
+                        DisplayMemberBinding="{Binding Vie}"
+                        Header="Vietnamese" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox
+            x:Name="txt_Vie"
+            materialDesign:HintAssist.Hint="Vietnamese"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,10,10,0" Height="45" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" TabIndex="2" />
+        <TextBox
+            x:Name="txt_Eng"
+            materialDesign:HintAssist.Hint="English"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,10,10,0" Height="45" VerticalAlignment="Top" TabIndex="1" />
+        <Button
+            Command="{StaticResource key1}"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            ToolTip="Thêm các từ tiếng Anh và tiếng Việt cần học vào bảng ở dưới" Margin="10,65,0,0" Height="30" VerticalAlignment="Top" BorderBrush="#FF78909C" Background="#FF78909C" Click="Button_Click" HorizontalAlignment="Left" Width="100" TabIndex="3">
+            Thêm thẻ
+            
+        </Button>
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            ToolTip="Xóa các từ tiếng Anh và tiếng Việt cần học vào bảng ở dưới sau khi chọn 1 thẻ" Margin="115,65,0,0" HorizontalAlignment="Left" Width="95" Height="30" VerticalAlignment="Top" Content="Xóa thẻ" BorderBrush="#FF78909C" Background="#FF78909C" Click="Button_Click_2" TabIndex="0"/>
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,65,22,0" HorizontalAlignment="Right" Width="95" Height="30" VerticalAlignment="Top" Content="Cập nhật" BorderBrush="#FF78909C" Background="#FF78909C" Grid.Column="2" Click="Button_Click_1"/>
+    </Grid>
+    
+    
+</Window>
+

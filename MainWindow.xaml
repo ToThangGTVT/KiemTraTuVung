@@ -30,6 +30,7 @@
                 <Separator  Height="3" Margin="0,0,0,6" VerticalAlignment="Bottom" Background="#FF455A64" Foreground="#FF37474F" BorderBrush="#FF455A64"></Separator>
                 <materialDesign:PackIcon Foreground="Yellow" Kind="StarRate" Height="35" Width="20" Margin="0,0,0,-23" RenderTransformOrigin="0,1.2" VerticalAlignment="Bottom" />
                 <TextBlock x:Name="txtD" HorizontalAlignment="Left" Margin="25,0,0,-20" TextWrapping="Wrap" Text="0" Width="320" Height="23" VerticalAlignment="Bottom"/>
+
             </Grid>
 
 
@@ -81,5 +82,11 @@
                 Liên hệ
             </Hyperlink>
         </TextBlock>
+        <Button
+            Grid.Row="0"
+            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+            Margin="14,15,0,0" Click="them_tu_moi" Background="#FF78909C" BorderBrush="#FF78909C" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40">
+            <materialDesign:PackIcon Kind="Add" Height="20" Width="20" />
+        </Button>
     </Grid>
 </Window>
