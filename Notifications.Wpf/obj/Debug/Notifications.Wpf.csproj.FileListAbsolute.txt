@@ -11,3 +11,16 @@ C:\Users\To Thang\Desktop\Notifications.Wpf-master\Notifications.Wpf-master\Noti
 C:\Users\To Thang\Desktop\Notifications.Wpf-master\Notifications.Wpf-master\Notifications.Wpf\obj\Debug\Notifications.Wpf.dll
 C:\Users\To Thang\Desktop\Notifications.Wpf-master\Notifications.Wpf-master\Notifications.Wpf\obj\Debug\Notifications.Wpf.pdb
 C:\Users\To Thang\Desktop\Notifications.Wpf-master\Notifications.Wpf-master\Notifications.Wpf\obj\Debug\Notifications.Wpf.csprojAssemblyReference.cache
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\bin\Debug\Notifications.Wpf.dll
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\bin\Debug\Notifications.Wpf.pdb
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\Notifications.Wpf.csprojAssemblyReference.cache
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\NotificationsOverlayWindow.g.cs
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\Notifications.Wpf_MarkupCompile.cache
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\Notifications.Wpf_MarkupCompile.lref
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\Themes\Generic.baml
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\NotificationsOverlayWindow.baml
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\Notifications.Wpf.g.resources
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\Notifications.Wpf.csproj.CoreCompileInputs.cache
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\Notifications.Wpf.dll
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\Notifications.Wpf\obj\Debug\Notifications.Wpf.pdb

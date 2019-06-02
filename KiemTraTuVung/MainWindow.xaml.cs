@@ -78,12 +78,17 @@ namespace Học_tiếng_Nhật
         private void ticker(object sender, EventArgs e)
         {
             ExcelWorksheet WS;
-            HOCTM htm = new HOCTM(Properties.Settings.Default.hoctumoi);
-            if (htm.hoc_tu_moi == true)
+            WS = package.Workbook.Worksheets[sheet_hientai_hoc];
+            try
             {
-                show_ntf(vitri_hoc);
-                vitri_hoc++;
+                row_max_hoc = WS.Dimension.End.Row;
             }
+            catch
+            {
+                sheet_hientai_hoc = 1;
+                vitri_hoc = 1;
+            }
+
             if (vitri_hoc > row_max_hoc)
             {
                 try
@@ -91,6 +96,7 @@ namespace Học_tiếng_Nhật
                     sheet_hientai_hoc++;
                     WS = package.Workbook.Worksheets[sheet_hientai_hoc];
                     int j = WS.Dimension.End.Row;
+                    vitri_hoc = 1;
                 }
                 catch
                 {
@@ -98,6 +104,14 @@ namespace Học_tiếng_Nhật
                     vitri_hoc = 1;
                 }
             }
+
+            HOCTM htm = new HOCTM(Properties.Settings.Default.hoctumoi);
+            if (htm.hoc_tu_moi == true)
+            {
+                show_ntf(vitri_hoc);
+                vitri_hoc++;
+            }
+            arrayList_hoc.Clear();
         }
 
         void dapan_ngaunhien()
@@ -557,7 +571,15 @@ namespace Học_tiếng_Nhật
         {
             ExcelWorksheet WS;
             WS = package.Workbook.Worksheets[sheet_hientai_hoc];
-            row_max_hoc = WS.Dimension.End.Row;
+            try
+            {
+                row_max_hoc = WS.Dimension.End.Row;
+            }
+            catch
+            {
+                sheet_hientai_hoc = 1;
+                WS = package.Workbook.Worksheets[sheet_hientai_hoc];
+            }
             while (WS.Dimension.End.Row == 0)
             {
                 WS = package.Workbook.Worksheets[sheet_hientai_hoc + 1];

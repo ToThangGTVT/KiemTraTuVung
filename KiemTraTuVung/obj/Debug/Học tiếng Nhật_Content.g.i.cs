@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("profanity%20(1).ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("notifications.wpf.dll")]
 
 

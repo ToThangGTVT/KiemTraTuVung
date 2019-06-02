@@ -132,7 +132,7 @@
     <Reference Include="System.Speech" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity">
-      <HintPath>..\..\..\..\Desktop\WPFToastNotification_1.1.0\WPFToastNotification\1.0\WPFNotification\WPFNotification\bin\Debug\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>bin\x64\Debug\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -236,9 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MyIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Notifications.Wpf.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Notifications.Wpf\Notifications.Wpf.csproj">

@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Học tiếng Nhật.exe" size="237040">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Học tiếng Nhật.exe" size="398832">
       <assemblyIdentity name="Học tiếng Nhật" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WY3zQfaLxFsbVCbS1xodU1/dDcp+UYqXg3ealGA9GmQ=</dsig:DigestValue>
+        <dsig:DigestValue>c3Btq7gJqz+Oxfe4ddbIER/NrWtwY3KYR1ShMRvY+hs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -90,13 +90,37 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Học tiếng Nhật.exe.config" size="1064">
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Notifications.Wpf.dll" size="30208">
+      <assemblyIdentity name="Notifications.Wpf" version="0.1.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>EBnoYfhzKq3QdIAK9hJXb1JNVKaGpmaKdlM8b1raiDQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Windows.Interactivity.dll" size="55904">
+      <assemblyIdentity name="System.Windows.Interactivity" version="4.5.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>k/vFnkiAr8nxNsOsCXatp/P6p8rO3OXIJLM3y8qdLr8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Học tiếng Nhật.exe.config" size="1186">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>EYEvYt/rXkpH9+eKV6327/Tbi2n0CKg2qhRABR5PKn0=</dsig:DigestValue>
+      <dsig:DigestValue>3APvU0nIqaxWyewGD+e98wQ92oZ5NDFKKgDZMumqvbM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="profanity (1).ico" size="103431">

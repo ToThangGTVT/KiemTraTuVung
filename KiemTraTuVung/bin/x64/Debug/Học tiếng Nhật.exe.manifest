@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qwG1yiN2nyiP5AsLQtcgimTSQirjQZQaaAxGSpBDyG0=</dsig:DigestValue>
+        <dsig:DigestValue>p2ApqIb4czY0o+2v+/rOKFVMzDnYiw2qrzZ/W3HDdAc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kSsyYAB5x10bknphSfh5d4wszjgCQ2xyfGJPOE4wg2k=</dsig:DigestValue>
+        <dsig:DigestValue>tfZiFHFYOjIj+PqPqnwWxqG71qZDl1NQsrJ23c6eNhI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -123,13 +123,13 @@
       <dsig:DigestValue>3APvU0nIqaxWyewGD+e98wQ92oZ5NDFKKgDZMumqvbM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Notifications.Wpf.dll" size="29696">
+  <file name="Notifications.Wpf.dll" size="27136">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>DPp4SwH0gRpLag7XufjRLYoJ7gpiNEE7KNwG5OvfGac=</dsig:DigestValue>
+      <dsig:DigestValue>nwjmTJtW+W4QFAG6RlCFzcXd6t73kruVRKQI/SkhCLk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="profanity (1).ico" size="103431">

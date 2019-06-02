@@ -43,7 +43,7 @@ namespace Học_tiếng_Nhật
         private void ExitApplication()
         {
             _isExit = true;
-            MainWindow.Close();
+            Application.Current.Shutdown();
             _notifyIcon.Dispose();
             _notifyIcon = null;
         }
