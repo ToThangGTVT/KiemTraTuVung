@@ -55,18 +55,21 @@
         <Button
             Command="{StaticResource key1}"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Thêm các từ tiếng Anh và tiếng Việt cần học vào bảng ở dưới" Margin="10,65,0,0" Height="30" VerticalAlignment="Top" BorderBrush="#FF78909C" Background="#FF78909C" Click="Button_Click" HorizontalAlignment="Left" Width="100" TabIndex="3">
+            ToolTip="Thêm các từ tiếng Anh và tiếng Việt cần học vào bảng ở dưới" Margin="10,65,0,0" Height="30" VerticalAlignment="Top" BorderBrush="#FF78909C" Background="#FF78909C" Click="Button_Click" HorizontalAlignment="Left" Width="95" TabIndex="3">
             Thêm thẻ
-            
+
         </Button>
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Xóa các từ tiếng Anh và tiếng Việt cần học vào bảng ở dưới sau khi chọn 1 thẻ" Margin="115,65,0,0" HorizontalAlignment="Left" Width="95" Height="30" VerticalAlignment="Top" Content="Xóa thẻ" BorderBrush="#FF78909C" Background="#FF78909C" Click="Button_Click_2" TabIndex="0"/>
-        <Button
-            Style="{StaticResource MaterialDesignRaisedButton}"
-            ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,65,22,0" HorizontalAlignment="Right" Width="95" Height="30" VerticalAlignment="Top" Content="Cập nhật" BorderBrush="#FF78909C" Background="#FF78909C" Grid.Column="2" Click="Button_Click_1"/>
+            ToolTip="Xóa các từ tiếng Anh và tiếng Việt cần học vào bảng ở dưới sau khi chọn 1 thẻ" Margin="110,65,0,0" HorizontalAlignment="Left" Width="90" Height="30" VerticalAlignment="Top" Content="Xóa thẻ" BorderBrush="#FF78909C" Background="#FF78909C" Click="Button_Click_2" TabIndex="0"/>
+        <ToggleButton 
+            x:Name="btn_htm"
+            Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+            ToolTip="MaterialDesignSwitchDarkToggleButton" Margin="0,65,7,0" Grid.Column="2" HorizontalAlignment="Right" Width="45" Height="30" VerticalAlignment="Top" Content="" Checked="ToggleButton_Checked" />
+        <TextBlock
+                FontWeight="Bold"  Margin="0,71,57,0" Grid.Column="2" HorizontalAlignment="Right" Width="69" Height="24" VerticalAlignment="Top" Foreground="#FF838383">
+                Học từ mới:
+        </TextBlock>
     </Grid>
-    
-    
 </Window>
 

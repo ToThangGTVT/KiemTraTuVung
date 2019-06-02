@@ -1,27 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using OfficeOpenXml;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using OfficeOpenXml;
 
 namespace Học_tiếng_Nhật
-{
-    /// <summary>
-    /// Interaction logic for Them_tu_moi.xaml
-    /// </summary>
+{ 
     public partial class Them_tu_moi : Window
     {
+        
         ExcelPackage package = new ExcelPackage(new FileInfo("dic.xlsx"));
 
         public Them_tu_moi()
@@ -41,9 +27,9 @@ namespace Học_tiếng_Nhật
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (txt_Eng.Text !="" & txt_Vie.Text != "")
+            if (txt_Eng.Text != "" & txt_Vie.Text != "")
             {
-                lst_excel.Items.Add(new Items{ Eng = txt_Eng.Text, Vie = txt_Vie.Text });
+                lst_excel.Items.Add(new Items { Eng = txt_Eng.Text, Vie = txt_Vie.Text });
             }
             txt_Eng.Text = null;
             txt_Vie.Text = null;
@@ -62,6 +48,15 @@ namespace Học_tiếng_Nhật
 
         private void Them_tu_moi_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            bool hoc;
+            if (btn_htm.IsChecked == true)
+            {
+                hoc = true;
+            }else
+            {
+                hoc = false;
+            }
+            Properties.Settings.Default.hoctumoi = hoc;
             capnhatExcel();
         }
 
@@ -90,6 +85,19 @@ namespace Học_tiếng_Nhật
             txt_Eng.Text = null;
             txt_Vie.Text = null;
             txt_Eng.Focus();
+        }
+
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            HOCTM hOCTM = new HOCTM(Properties.Settings.Default.hoctumoi);
+            if (hOCTM.hoc_tu_moi == true)
+            {
+                hOCTM.hoc_tu_moi = false;
+            }
+            else
+            {
+                hOCTM.hoc_tu_moi = true;
+            }
         }
     }
 

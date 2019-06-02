@@ -130,6 +130,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
     <Reference Include="System.Speech" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\..\Desktop\WPFToastNotification_1.1.0\WPFToastNotification\1.0\WPFNotification\WPFNotification\bin\Debug\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -149,6 +153,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CARD.cs" />
+    <Compile Include="HOCTM.cs" />
     <Compile Include="Them_tu_moi.xaml.cs">
       <DependentUpon>Them_tu_moi.xaml</DependentUpon>
     </Compile>
@@ -190,7 +195,6 @@
     <None Include="dic.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Học tiếng Nhật_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -229,6 +233,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MyIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Notifications.Wpf.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Notifications.Wpf\Notifications.Wpf.csproj">
+      <Project>{5c9a4f46-263d-4c23-b361-f09e14bb109e}</Project>
+      <Name>Notifications.Wpf</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

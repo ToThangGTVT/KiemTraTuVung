@@ -63,3 +63,7 @@ C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\H
 C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\KiemTraTuVung\obj\x64\Debug\Học tiếng Nhật.pdb
 C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\KiemTraTuVung\obj\x64\Debug\them_tu_moi.g.cs
 C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\KiemTraTuVung\obj\x64\Debug\them_tu_moi.baml
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\KiemTraTuVung\bin\x64\Debug\Notifications.Wpf.dll
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\KiemTraTuVung\obj\x64\Debug\Học tiếng Nhật_Content.g.cs
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\KiemTraTuVung\bin\x64\Debug\System.Windows.Interactivity.dll
+C:\Users\To Thang\OneDrive - University of transport and Communication\C# 2017\Học tiếng Nhật\KiemTraTuVung\bin\x64\Debug\Notifications.Wpf.pdb

@@ -1,21 +1,24 @@
-﻿using OfficeOpenXml;
+﻿using Notifications.Wpf;
+using OfficeOpenXml;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Speech.Synthesis;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Navigation;
+using System.Windows.Threading;
 
 namespace Học_tiếng_Nhật
 {
     public partial class MainWindow : Window
     {
-        CARD k;
+        CARD k,k_hoc;
         ArrayList arrayList = new ArrayList();
+        ArrayList arrayList_hoc = new ArrayList();
         ExcelPackage package = new ExcelPackage(new FileInfo("dic.xlsx"));
         int vitri = 1;
         string eng;
@@ -29,16 +32,23 @@ namespace Học_tiếng_Nhật
         bool tra_loi_sai = false;
         int cau_hoi_da_sai = 1;
         int sheet_hientai = 1;
-        int sheet_max;
+        int sheet_hientai_hoc = 1;
+        int row_max_hoc;
         int sheet_min = 1;
+        int vitri_hoc=1;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(10);
+            dispatcherTimer.Tick += ticker;
+            dispatcherTimer.Start();
+
             txtD.Text = Properties.Settings.Default.diem;
             loai_cau_hoi = Properties.Settings.Default.chedohoc;
 
-            
             if (txtD.Text == "")
             {
                 diemso = 0;
@@ -62,6 +72,31 @@ namespace Học_tiếng_Nhật
                 cot_da = 1;
                 _ = tumoi_ngaunhien();
                 dapan_ngaunhien();
+            }
+        }
+
+        private void ticker(object sender, EventArgs e)
+        {
+            ExcelWorksheet WS;
+            HOCTM htm = new HOCTM(Properties.Settings.Default.hoctumoi);
+            if (htm.hoc_tu_moi == true)
+            {
+                show_ntf(vitri_hoc);
+                vitri_hoc++;
+            }
+            if (vitri_hoc > row_max_hoc)
+            {
+                try
+                {
+                    sheet_hientai_hoc++;
+                    WS = package.Workbook.Worksheets[sheet_hientai_hoc];
+                    int j = WS.Dimension.End.Row;
+                }
+                catch
+                {
+                    sheet_hientai = 1;
+                    vitri_hoc = 1;
+                }
             }
         }
 
@@ -186,9 +221,18 @@ namespace Học_tiếng_Nhật
         private void load_excel(int sheet_hientai)
         {
             ExcelWorksheet WS = package.Workbook.Worksheets[sheet_hientai];
-            for (int i = 1;i<= WS.Dimension.End.Row; i++)
+            for (int i = 1; i <= WS.Dimension.End.Row; i++)
             {
                 arrayList.Add(new CARD(WS.Cells[i, 1].Value.ToString(), WS.Cells[i, 2].Value.ToString()));
+            }
+        }
+
+        private void load_excel_hoc(int sheet_hientai)
+        {
+            ExcelWorksheet WS = package.Workbook.Worksheets[sheet_hientai];
+            for (int i = 1; i <= WS.Dimension.End.Row; i++)
+            {
+                arrayList_hoc.Add(new CARD(WS.Cells[i, 1].Value.ToString(), WS.Cells[i, 2].Value.ToString()));
             }
         }
 
@@ -212,9 +256,9 @@ namespace Học_tiếng_Nhật
         private void chuyen_len_tren(int sheet_hien_tai, int vitri, CARD the_eng_vie)
         {
             ExcelWorksheet WS = package.Workbook.Worksheets[sheet_hien_tai];
-            WS.DeleteRow(vitri,vitri,true);
+            WS.DeleteRow(vitri, vitri, true);
             package.Save();
-            ExcelWorksheet WS1 = package.Workbook.Worksheets[sheet_hien_tai+1];
+            ExcelWorksheet WS1 = package.Workbook.Worksheets[sheet_hien_tai + 1];
 
             try
             {
@@ -294,7 +338,6 @@ namespace Học_tiếng_Nhật
                     break;
             }
         }
-
 
         async private void BtnA_Click(object sender, RoutedEventArgs e)
         {
@@ -500,6 +543,7 @@ namespace Học_tiếng_Nhật
         private void them_tu_moi(object sender, RoutedEventArgs e)
         {
             Them_tu_moi tumoi = new Them_tu_moi();
+            tumoi.btn_htm.IsChecked = Properties.Settings.Default.hoctumoi;
             tumoi.ShowDialog();
         }
 
@@ -508,5 +552,40 @@ namespace Học_tiếng_Nhật
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
+
+        private CARD hoc_tu_moi(int i)
+        {
+            ExcelWorksheet WS;
+            WS = package.Workbook.Worksheets[sheet_hientai_hoc];
+            row_max_hoc = WS.Dimension.End.Row;
+            while (WS.Dimension.End.Row == 0)
+            {
+                WS = package.Workbook.Worksheets[sheet_hientai_hoc + 1];
+                sheet_hientai++;
+            }
+
+            load_excel_hoc(sheet_hientai_hoc);
+            int index_hoc = i;
+            k_hoc = arrayList_hoc[index_hoc-1] as CARD;
+            return k_hoc;
+        }
+
+        private void show_ntf(int i)
+        {
+            NotifyIcon ntf = new NotifyIcon();
+            string ta = hoc_tu_moi(i).ENG;
+            string tv = hoc_tu_moi(i).VIE;
+
+            var notificationManager = new NotificationManager();
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = ta,
+                Message = tv,
+                Type = NotificationType.Information
+            });
+
+        }
+
     }
 }
