@@ -42,8 +42,9 @@ namespace Học_tiếng_Nhật
             InitializeComponent();
 
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Interval = TimeSpan.FromSeconds(10);
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(17.75);
             dispatcherTimer.Tick += ticker;
+            ticker(null, null);
             dispatcherTimer.Start();
 
             txtD.Text = Properties.Settings.Default.diem;
@@ -503,7 +504,7 @@ namespace Học_tiếng_Nhật
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)  // đổi loại câu hỏi
         {
             if (loai_cau_hoi == true)
             {

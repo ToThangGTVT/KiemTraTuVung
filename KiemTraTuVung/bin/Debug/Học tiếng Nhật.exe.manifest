@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>c3Btq7gJqz+Oxfe4ddbIER/NrWtwY3KYR1ShMRvY+hs=</dsig:DigestValue>
+        <dsig:DigestValue>PSpBnrMzx6ca3q9IvsMVe/2YfwkOlyeSGvUHnQTIM1I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -91,14 +91,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Notifications.Wpf.dll" size="30208">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Notifications.Wpf.dll" size="30720">
       <assemblyIdentity name="Notifications.Wpf" version="0.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EBnoYfhzKq3QdIAK9hJXb1JNVKaGpmaKdlM8b1raiDQ=</dsig:DigestValue>
+        <dsig:DigestValue>4N2M9DET9oxxfKWxp4F2jPXuxgOe1S/MwZ+/m2t6KZA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

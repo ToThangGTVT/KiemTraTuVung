@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls1="clr-namespace:Notifications.Wpf.Controls"
         mc:Ignorable="d"
-        Title="ToastWindow"
+        Title="Notification"
         Background="Transparent"
         ShowInTaskbar="False"
         WindowStyle="None"

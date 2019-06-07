@@ -33,7 +33,7 @@ namespace Notifications.Wpf
                 return;
             }
 
-            if (expirationTime == null) expirationTime = TimeSpan.FromSeconds(25);
+            if (expirationTime == null) expirationTime = TimeSpan.FromSeconds(18);
 
             if (areaName == string.Empty && _window == null)
             {
