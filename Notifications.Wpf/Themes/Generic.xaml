@@ -37,19 +37,25 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <ContentControl Margin="0,0,12,0" Width="25" Height="25" VerticalAlignment="Top">
-                            <ContentControl x:Name="Icon" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <ContentControl Margin="3,3,8,0" Width="25" Height="25" VerticalAlignment="Top">
+                            <ContentControl x:Name="Icon" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                         </ContentControl>
                         <DockPanel Grid.Column="1">
-                            <TextBlock DockPanel.Dock="Top" Foreground="#FFECEFF1" Text="{Binding Title}" FontWeight="Medium" TextTrimming="CharacterEllipsis" FontSize="16" />
-                            <TextBlock Text="{Binding Message}" Foreground="#FFECEFF1" TextWrapping="Wrap" FontWeight="Regular" Opacity="1" Margin="0,0,25,0"/>
+                            <TextBlock DockPanel.Dock="Top" Text="{Binding Title}" FontFamily="Segoe UI" FontWeight="Medium" TextTrimming="CharacterEllipsis" FontSize="15" Foreground="White" />
+                            <TextBlock Text="{Binding Message}" FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" TextWrapping="Wrap" FontWeight="Regular" Opacity="1" Margin="0,0,25,0"/>
                         </DockPanel>
                     </Grid>
                 </Border>
                 <DataTemplate.Triggers>
                     <DataTrigger Binding="{Binding Type}" Value="Information">
                         <Setter TargetName="Icon" Property="Content" Value="{StaticResource InfoIcon}"/>
-                        <Setter TargetName="Border" Property="Background" Value="#FF388E3C"/>
+                        <Setter TargetName="Border" Property="Background">
+                            <Setter.Value>
+                                <ImageBrush Opacity="0.85" ImageSource="pack://application:,,,/Học tiếng Nhật;component/Resources/design-material4.jpg" Stretch="UniformToFill">
+                                    
+                                </ImageBrush>
+                            </Setter.Value>
+                        </Setter>
                     </DataTrigger>
                     <DataTrigger Binding="{Binding Type}" Value="Success">
                         <Setter TargetName="Icon" Property="Content" Value="{StaticResource SuccessIcon}"/>
@@ -72,14 +78,14 @@
                 Margin="8,8,0,0">
             <Grid>
                 <ContentPresenter/>
-                <Button x:Name="PART_CloseButton" Style="{StaticResource CloseButtonStyle}" Margin="12" Foreground="{TemplateBinding Foreground}" Opacity=".8"/>
+                <Button x:Name="PART_CloseButton" Style="{StaticResource CloseButtonStyle}" Margin="12" Foreground="{TemplateBinding Foreground}" Opacity="0.8"/>
             </Grid>
         </Border>
         <ControlTemplate.Triggers>
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:.5" />
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:.2" />
                         <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" From="0" To="1" Duration="0:0:.2"/>
                         <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" From="0" To="1" Duration="0:0:.2"/>
                     </Storyboard>
@@ -87,19 +93,16 @@
             </EventTrigger>
             <EventTrigger RoutedEvent="controls:Notification.NotificationCloseInvoked" >
                 <BeginStoryboard>
-                    <Storyboard Duration="0:0:.1">
-                        <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" From="1" To="0.1" Duration="0:0:.2"/>
-                    </Storyboard>
-                </BeginStoryboard>
-                <BeginStoryboard>
-                    <Storyboard BeginTime="0:0:.2">
-                        <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" From="1" To="0" Duration="0:0:.2"/>
+                    <Storyboard Duration="0:0:0.2">
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:.2" />
+                        <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" From="1" To="0" Duration="0:0:0.2"/>
+                        <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" From="1" To="0" Duration="0:0:0.2"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
     <Style TargetType="{x:Type controls:Notification}">
         <!--<Setter Property="Height" Value="100"/>-->
         <Setter Property="UseLayoutRounding" Value="True"/>

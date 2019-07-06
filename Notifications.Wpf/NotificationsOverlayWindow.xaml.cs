@@ -10,7 +10,17 @@ namespace Notifications.Wpf
         public NotificationsOverlayWindow()
         {
             InitializeComponent();
+            
         }
-        
+
+        private void NotificationArea_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            
+        }
+
+        private void NotificationArea_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            
+        }
     }
 }

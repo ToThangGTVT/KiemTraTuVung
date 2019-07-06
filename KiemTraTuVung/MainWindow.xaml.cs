@@ -34,15 +34,15 @@ namespace Học_tiếng_Nhật
         int sheet_hientai = 1;
         int sheet_hientai_hoc = 1;
         int row_max_hoc;
-        int sheet_min = 1;
-        int vitri_hoc=1;
+        int vitri_hoc =1;
+        int mo_lan_dau = 0;
 
         public MainWindow()
         {
             InitializeComponent();
 
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Interval = TimeSpan.FromSeconds(17.75);
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(25);
             dispatcherTimer.Tick += ticker;
             ticker(null, null);
             dispatcherTimer.Start();
@@ -110,6 +110,7 @@ namespace Học_tiếng_Nhật
             if (htm.hoc_tu_moi == true)
             {
                 show_ntf(vitri_hoc);
+                
                 vitri_hoc++;
             }
             arrayList_hoc.Clear();
@@ -265,7 +266,11 @@ namespace Học_tiếng_Nhật
             int index = vitri - 1;
             k = arrayList[index] as CARD;
             txtCH.Text = k.ENG;
-            await phat_am(k.ENG);
+            if (mo_lan_dau != 0)
+            {
+                await phat_am(k.ENG);
+            }
+            mo_lan_dau++;
         }
 
         private void chuyen_len_tren(int sheet_hien_tai, int vitri, CARD the_eng_vie)
@@ -593,20 +598,21 @@ namespace Học_tiếng_Nhật
             return k_hoc;
         }
 
-        private void show_ntf(int i)
+        async private void show_ntf(int i)
         {
             NotifyIcon ntf = new NotifyIcon();
             string ta = hoc_tu_moi(i).ENG;
             string tv = hoc_tu_moi(i).VIE;
-
+            
             var notificationManager = new NotificationManager();
-
             notificationManager.Show(new NotificationContent
             {
+                 
                 Title = ta,
                 Message = tv,
                 Type = NotificationType.Information
             });
+            await phat_am(ta);
 
         }
 
